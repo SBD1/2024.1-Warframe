@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-![Warframe](.docs/assets/capa.png)
+![Warframe](.assets/capa.png)
 
 Este repositório é dedicada ao desenvolvimento do Jogo inspirado no universo do jogo Warframe, da turma de sistema de banco de dados 1 da Faculdade do Gama - Universidade de Brasília (FGA-UnB) durante o 1º semestre de 2024.
 
