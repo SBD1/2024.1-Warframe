@@ -2,9 +2,21 @@
 
 ## Sobre o Projeto
 
+![Warframe](docs\assets\capa.png)
+
 Este repositório é dedicada ao desenvolvimento do Jogo inspirado no universo do jogo Warframe, da turma de sistema de banco de dados 1 da Faculdade do Gama - Universidade de Brasília (FGA-UnB) durante o 1º semestre de 2024.
 
 ## 🎮 Sobre o Jogo
+
+Warframe é um jogo de tiro em terceira pessoa online, com elementos de ação e RPG, desenvolvido pela Digital Extremes. O jogo é ambientado em um universo de ficção científica futurista, onde os jogadores assumem o papel de Tenno, uma raça de guerreiros antigos equipados com exo-armaduras chamadas Warframes. Esses Warframes possuem habilidades únicas e poderes especiais, permitindo aos jogadores personalizar suas estratégias de combate.
+
+Os jogadores embarcam em missões em diversos planetas e luas do sistema solar, enfrentando diferentes facções inimigas, como os Grineer, Corpus, e Infested, entre outras. As missões incluem objetivos variados, como resgatar reféns, defender áreas, coletar recursos ou eliminar alvos específicos.
+
+O jogo é conhecido por sua ênfase na mobilidade e nos combates ágeis. Os jogadores podem correr, saltar, escalar paredes, deslizar, e usar movimentos acrobáticos para se movimentar pelo ambiente de jogo.
+
+Além das missões PvE, Warframe também possui modos de jogo PvP (jogador contra jogador) em arenas, onde os jogadores podem competir entre si. O jogo é gratuito para jogar, com transações dentro do jogo para comprar itens cosméticos e outros itens opcionais.
+
+Warframe também tem um forte componente de coleta e personalização, com uma grande variedade de armas, mods (modificações) e itens para descobrir e aprimorar ao longo do jogo.
 
 ## :interrobang: Como jogar?
 
