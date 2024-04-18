@@ -25,3 +25,18 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 | <img src="https://avatars.githubusercontent.com/u/78980856?s=400&u=921d277b9f43db9a1f09325391b30bb23e2f6c1e&v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/98053876?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/78981008?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/54339291?v=4" width="100px" style="border-radius: 50%;"> |
 |:----------------------------------------------------------:|:------------------------------------------------:|:-------------------------------------------------------------:|:----------------------------------------------------:|
 |[Hian Praxedes](https://github.com/HianPraxedes)      | [Algusto Caldas](https://github.com/Algusto-RC)     | [Silas Neres](https://github.com/Silas-neres)      | [Taynara Marcellos](https://github.com/TaynaraCris)      |
+
+## :paperclip: Apresentações
+
+| Módulo | Link da gravação                                                                                    | Data       |
+| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
+| 1      | [Apresentação Módulo 1]()                                  | |
+
+## :file_folder: Entregas
+
+- Módulo 1
+
+  - [Diagrama Entidade-Relacionamento]()
+  - [Dicionário de Dados]()
+  - [Modelo Entidade-Relacionamento]()
+  - [Modelo Relacional]()
