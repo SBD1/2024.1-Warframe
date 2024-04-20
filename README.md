@@ -37,6 +37,6 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 - Módulo 1
 
   - [Diagrama Entidade-Relacionamento]()
-  - [Dicionário de Dados]()
+  - [Dicionário de Dados](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Dicion%C3%A1rio%20de%20Dados.md)
   - [Modelo Entidade-Relacionamento]()
   - [Modelo Relacional]()
