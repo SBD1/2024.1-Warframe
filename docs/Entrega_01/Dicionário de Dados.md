@@ -41,7 +41,7 @@ A entidade "Mapa" armazena informações sobre as áreas ou ambientes no jogo, i
 | conexoes          | TEXT         | Lista de áreas adjacentes conectadas a essa área | Texto               | Sim                    | Não      |                      |
 | recursos          | TEXT         | Lista de recursos disponíveis na área           | Texto               | Sim                    | Não      |                      |
 
-### **Armas**
+### **Equipamentos**
 
 A entidade "Armas" armazena informações sobre as armas disponíveis no jogo, incluindo detalhes sobre seu tipo, dano causado e identificação do jogador que as possui.
 
