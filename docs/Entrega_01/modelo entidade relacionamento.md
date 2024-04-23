@@ -1,6 +1,7 @@
 | Versão |    Data    | Descrição               | Autor                                                                                                                 |
 | :----: | :--------: | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `1.0`  | 22/04/2024 | Criação do documento MER | [Taynara Cristina](https://github.com/TaynaraCris)
+| `1.0`  | 22/04/2024 | Criação do documento MER | [Taynara Cristina](https://github.com/TaynaraCris)|
+| `1.1` | 22 /04/2024 | Atualização relacionamentos| [Taynara Cristina](https://github.com/TaynaraCris)
 
 # MER - Modelo Entidade Relacionamento
 
@@ -30,16 +31,16 @@
 ## 3. Relacionamentos
 
 ### Níveis *classifica* jogadores
-- Cada nível pode classificar nenhum ou vários jogadores (0, N);
+- Cada nível pode classificar um ou vários jogadores (1, N);
 - Um jogador pode ser classificado em nenhum ou vários níveis (0, N);
 
 ### Aliados *acompanha* joagores
 - Cada jogador pode ser acompanhado por nenhum ou vários aliados (0, N);
-- Um aliado pode acompanhar nenhum ou vários jogadores (0, N);
+- Um aliado pode acompanhar nenhum ou um jogador jogadores (0, 1);
 
 ### Jogadores *usa* equipamento
 - Cada jogador pode usar nenhum ou vários equipamentos (0, N);
-- Um equipamento pode ser usado por nenhum ou vários jogadores(0,N);
+- Um equipamento pode ser usado por pelo menos um jogador(1,n);
 
 ### Jogadores *aceita* missões
 - Cada jogador pode aceitar nenhuma ou várias missões (0, N);
@@ -54,13 +55,13 @@
 - Um item pode ser coletado por nenhum ou vários jogadores (0, N);
 
 ### Mapa *define* missões
-- Cada mapa pode definir nenhuma ou várias missões (0, N);
-- Uma missão pode ser definida por nenhum ou vários mapas (0, N);
+- Cada mapa define uma única missão (1, 1);
+- Cada missão é definida por um único mapa (1, 1);
 
 ### Mapa *abriga* monstros
-- Cada mapa pode abrigar nenhum ou vários monstros (0, N);
+- Cada mapa pode abrigar nenhum ou vários monstros (1, N);
 - Um monstro pode ser abrigado por nenhum ou vários mapas (0,N);
 
 ### Monstros *entrega* itens
-- Cada monstro pode entregar nenhum ou vários itens (0, N);
-- Um item pode ser entregue por nenhum ou vários monstros (0, N);
+- Cada monstro pode entregar um ou vários itens (1, N);
+- Cada item pode ser entregue por um monstro ou por possivelmente vários (1, N);
