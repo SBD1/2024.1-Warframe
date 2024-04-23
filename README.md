@@ -25,6 +25,7 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 | <img src="https://avatars.githubusercontent.com/u/78980856?s=400&u=921d277b9f43db9a1f09325391b30bb23e2f6c1e&v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/98053876?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/78981008?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/54339291?v=4" width="100px" style="border-radius: 50%;"> |
 |:----------------------------------------------------------:|:------------------------------------------------:|:-------------------------------------------------------------:|:----------------------------------------------------:|
 |[Hian Praxedes](https://github.com/HianPraxedes)      | [Algusto Caldas](https://github.com/Algusto-RC)     | [Silas Neres](https://github.com/Silas-neres)      | [Taynara Marcellos](https://github.com/TaynaraCris)      |
+|200019520     | 202017521   | 200043536     | 211031833      |
 
 ## :paperclip: Apresentações
 
@@ -36,7 +37,7 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 
 - Módulo 1
 
-  - [Diagrama Entidade-Relacionamento]()
+  - [Diagrama Entidade-Relacionamento](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Diagrama%20Entidade%20Relacionamento.md)
   - [Dicionário de Dados](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Dicion%C3%A1rio%20de%20Dados.md)
   - [Modelo Entidade-Relacionamento](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/modelo%20entidade%20relacionamento.md)
   - [Modelo Relacional](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Modelo%20Relacional.md)
