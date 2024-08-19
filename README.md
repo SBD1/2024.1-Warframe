@@ -41,3 +41,7 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
   - [Dicionário de Dados](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Dicion%C3%A1rio%20de%20Dados.md)
   - [Modelo Entidade-Relacionamento](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/modelo%20entidade%20relacionamento.md)
   - [Modelo Relacional](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_01/Modelo%20Relacional.md)
+
+- Módulo 2
+
+  - [Álgebra Relacional](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_02/%C3%81lgebra_Relacional.pdf)
