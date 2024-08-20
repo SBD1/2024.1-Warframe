@@ -31,7 +31,7 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 
 | Módulo | Link da gravação                                                                                    | Data       |
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
-| 1      | [Apresentação Módulo 1](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2001.mp4)   
+| 1      | [Apresentação Módulo 1](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2001.mp4)   | 22/04/2024|
 | 2      | [Apresentação Módulo 2]()                                 | 19/08/2024|
 
 ## :file_folder: Entregas
