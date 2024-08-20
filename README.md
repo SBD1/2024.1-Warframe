@@ -31,7 +31,8 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 
 | Módulo | Link da gravação                                                                                    | Data       |
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
-| 1      | [Apresentação Módulo 1](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2001.mp4)                                  | 22/04/2024|
+| 1      | [Apresentação Módulo 1](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2001.mp4)   
+| 2      | [Apresentação Módulo 2]()                                 | 19/08/2024|
 
 ## :file_folder: Entregas
 
@@ -45,3 +46,5 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 - Módulo 2
 
   - [Álgebra Relacional](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_02/%C3%81lgebra_Relacional.pdf)
+  - [DML](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_02/INSERT.sql)
+  - [DDL]()
