@@ -29,8 +29,10 @@ SELECT
 FROM Jogadores j
 JOIN Niveis n ON j.nivel_id = n.nivel
 JOIN Mapa m ON j.local_atual_id = m.id;
-Consulta para Visualizar os Detalhes dos Jogadores
+```
+## Consulta para Visualizar os Detalhes dos Jogadores
 
+```
 SELECT * FROM vw_jogadores_detalhes;
 
 View de Inventário dos Jogadores
@@ -51,10 +53,14 @@ SELECT
 FROM Jogadores j
 LEFT JOIN Itens i ON j.id = i.jogador_id
 LEFT JOIN Equipamentos e ON j.id = e.id_jogador;
-Consulta para Visualizar o Inventário dos Jogadores
+```
 
+## Consulta para Visualizar o Inventário dos Jogadores
+
+```
 SELECT * FROM vw_inventario_jogadores
 WHERE jogador_id = 1;
+```
 
 ## Criação da View monstros_mortos
 
