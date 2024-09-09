@@ -84,7 +84,7 @@ Este guia mostra como configurar e rodar o código Python que se conecta a um ba
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
 | 1      | [Apresentação Módulo 1](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2001.mp4)   | 22/04/2024|
 | 2      | [Apresentação Módulo 2](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2002.mp4)                                 | 19/08/2024|
-| 3      | [Apresentação Módulo 3]()                                 | 09/09/2024|
+| 3      | [Apresentação Módulo 3](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/assets/videos/Apresentacao%20modulo%2003.mp4)                                 | 09/09/2024|
 
 ## :file_folder: Entregas
 
