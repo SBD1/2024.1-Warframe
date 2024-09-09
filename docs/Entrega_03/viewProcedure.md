@@ -2,6 +2,7 @@
 | :----: | :--------: | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `1.0`  | 07/09/2024 | Criação do documento de view e procedure | [Taynara Cristina](https://github.com/TaynaraCris)|
 | `1.1` | 08/09/2024 | Adicionando view e procedure| [Taynara Cristina](https://github.com/TaynaraCris)
+| `1.2` | 08/09/2024 | Adicionando view e procedure| [Algusto Caldas](https://github.com/Algusto-RC)
 
 # Views
 
@@ -96,6 +97,61 @@ SELECT * FROM monstros_mortos;
 ```
 
 # PROCEDURES
+
+## Procedimento para Inserir Jogador
+
+Este procedimento `inserir_jogador` adiciona um novo jogador à tabela `Jogadores`.
+
+```sql
+CREATE OR REPLACE PROCEDURE inserir_jogador(
+    p_nome TEXT,
+    p_senha TEXT,
+    p_nivel INT,
+    p_experiencia INT,
+    p_saude INT,
+    p_dano INT,
+    p_nivel_id INT,
+    p_warframe_descricao TEXT,
+    p_warframe_habilidades TEXT,
+    p_local_atual_id INT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO Jogadores (nome, senha, nivel, experiencia, saude, dano, nivel_id, warframe_descricao, warframe_habilidades, local_atual_id)
+    VALUES (p_nome, p_senha, p_nivel, p_experiencia, p_saude, p_dano, p_nivel_id, p_warframe_descricao, p_warframe_habilidades, p_local_atual_id);
+
+    RAISE NOTICE 'Jogador % foi inserido com sucesso.', p_nome;
+END;
+$$;
+```
+
+### Chamada do Procedimento para Inserir Jogador
+
+Esta linha chama o procedimento `inserir_jogador`, passando os dados do jogador.
+
+```sql
+CALL inserir_jogador('nome', 'senha', 1, 0, 100, 10, 1, 'descrição', 'habilidades', 1);
+```
+
+### Remoção do Procedimento
+
+Remove o procedimento `inserir_jogador`, caso ele exista.
+
+```sql
+DROP PROCEDURE IF EXISTS inserir_jogador(
+    p_nome TEXT,
+    p_senha TEXT,
+    p_nivel INT,
+    p_experiencia INT,
+    p_saude INT,
+    p_dano INT,
+    p_nivel_id INT,
+    p_warframe_descricao TEXT,
+    p_warframe_habilidades TEXT,
+    p_local_atual_id INT);
+```
+
+---
 
 ## Procedimento para Reviver Monstros
 
@@ -262,8 +318,52 @@ Remove o procedimento usar_item, caso ele exista.
 DROP PROCEDURE IF EXISTS usar_item(p_jogador_id INT, p_item_id INT);
 ```
 
+## Procedimento para Inserir Missão
 
+Este procedimento `inserir_missao` adiciona uma nova missão à tabela `Missoes`.
 
+```sql
+CREATE OR REPLACE PROCEDURE inserir_missao(
+    p_nome TEXT,
+    p_descricao TEXT,
+    p_dificuldade INT,
+    p_recompensa TEXT,
+    p_local_id INT,
+    p_jogador_id INT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO Missoes (nome, descricao, dificuldade, recompensa, local_id, jogador_id)
+    VALUES (p_nome, p_descricao, p_dificuldade, p_recompensa, p_local_id, p_jogador_id);
+
+    RAISE NOTICE 'Missão % foi inserida com sucesso.', p_nome;
+END;
+$$;
+```
+
+### Chamada do Procedimento para Inserir Missão
+
+Esta linha chama o procedimento `inserir_missao`, passando os dados da missão.
+
+```sql
+CALL inserir_missao('nome_missao', 'descrição', 3, 'recompensa', 1, 1);
+```
+
+### Remoção do Procedimento
+
+Remove o procedimento `inserir_missao`, caso ele exista.
+
+```sql
+DROP PROCEDURE IF EXISTS inserir_missao(
+    p_nome TEXT,
+    p_descricao TEXT,
+    p_dificuldade INT,
+    p_recompensa TEXT,
+    p_local_id INT,
+    p_jogador_id INT);
+```
+
+---
 
 ## Procedimento para Ganhar Experiência em Missões
 
@@ -320,3 +420,43 @@ Remove o procedimento ganhar_experiencia_missao, caso ele exista.
 ```sql
 DROP PROCEDURE IF EXISTS ganhar_experiencia_missao(INT, INT);
 ```
+
+## Procedimento para Atualizar Saúde do Jogador
+
+Este procedimento `atualizar_saude_jogador` atualiza a saúde de um jogador específico.
+
+```sql
+CREATE OR REPLACE PROCEDURE atualizar_saude_jogador(
+    p_jogador_id INT,
+    p_nova_saude INT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE Jogadores
+    SET saude = p_nova_saude
+    WHERE id = p_jogador_id;
+
+    RAISE NOTICE 'A saúde do jogador % foi atualizada para %.', p_jogador_id, p_nova_saude;
+END;
+$$;
+```
+
+### Chamada do Procedimento para Atualizar Saúde do Jogador
+
+Esta linha chama o procedimento `atualizar_saude_jogador`, passando o ID do jogador e a nova saúde.
+
+```sql
+CALL atualizar_saude_jogador(1, 80);
+```
+
+### Remoção do Procedimento
+
+Remove o procedimento `atualizar_saude_jogador`, caso ele exista.
+
+```sql
+DROP PROCEDURE IF EXISTS atualizar_saude_jogador(
+    p_jogador_id INT,
+    p_nova_saude INT);
+```
+
+---
