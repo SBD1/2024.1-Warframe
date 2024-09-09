@@ -16,8 +16,7 @@ def connect_db():
         print(f"Erro ao conectar ao banco de dados: {e}")
         sys.exit(1)
 
-# Criar conta
-def create_account(cursor):
+def create_account(cursor, connection):
     nome = input("Digite o nome de usuário: ")
     senha = input("Digite a senha: ")
     nivel_id = 1  # Definindo nível inicial
@@ -33,9 +32,11 @@ def create_account(cursor):
             INSERT INTO Jogadores (nome, senha, nivel, experiencia, saude, dano, nivel_id, warframe_descricao, warframe_habilidades, local_atual_id)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """, (nome, senha, nivel_id, experiencia, saude, dano, nivel_id, warframe_descricao, warframe_habilidades, local_atual_id))
+        connection.commit()  # Confirma a transação
         print("Conta criada com sucesso!")
     except Exception as e:
         print(f"Erro ao criar conta: {e}")
+
 
 # Autenticação do jogador
 def login(cursor):
@@ -203,7 +204,7 @@ def explore(cursor, jogador):
         if monstros:
             print("Monstros na região:")
             for monstro in monstros:
-                print(f"- {monstro[1]} (Nível: {monstro[4]})")
+                print(f"- {monstro[1]} (Nível: {monstro[3]})")
             
             escolha_monstro = int(input("Escolha o número do monstro para enfrentar: ")) - 1
             if 0 <= escolha_monstro < len(monstros):
@@ -228,7 +229,7 @@ def main():
         escolha = input("Escolha uma opção: ")
 
         if escolha == "1":
-            create_account(cursor)
+            create_account(cursor, connection)
         elif escolha == "2":
             jogador = login(cursor)
             if jogador:
