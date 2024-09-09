@@ -6,11 +6,12 @@ import random
 def connect_db():
     try:
         connection = psycopg2.connect(
-            dbname="Mud_data",
-            user="postgres",
-            password="praxedes",
-            host="localhost"
-        )
+        dbname="Mud_data",
+        user="postgres",
+        password="sua_senha_aqui",  # Substitua por sua senha
+        host="localhost"
+    )
+
         return connection
     except Exception as e:
         print(f"Erro ao conectar ao banco de dados: {e}")

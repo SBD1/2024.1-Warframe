@@ -20,6 +20,57 @@ Warframe também tem um forte componente de coleta e personalização, com uma g
 
 ## :interrobang: Como jogar?
 
+# Passo a passo para rodar o código MUD com PostgreSQL
+
+Este guia mostra como configurar e rodar o código Python que se conecta a um banco de dados PostgreSQL para gerenciar um jogo MUD com criação de contas, login e exploração.
+
+## Pré-requisitos
+
+1. **Python 3.x**: Verifique se você tem o Python 3.x instalado.
+   - Para instalar: 
+     ```bash
+     sudo apt install python3
+     ```
+
+2. **PostgreSQL**: Instale o PostgreSQL e crie um banco de dados.
+   - Para instalar o PostgreSQL:
+     ```bash
+     sudo apt install postgresql postgresql-contrib
+     ```
+   - Para acessar o PostgreSQL:
+     ```bash
+     sudo -u postgres psql
+     ```
+   - Modifique esse parte do codigo para os dados referentes ao seu banco de dados
+     ```sql
+      def connect_db():
+        try:
+            connection = psycopg2.connect(
+            dbname="Mud_data",
+            user="postgres",
+            password="sua_senha_aqui",  # Substitua por sua senha
+            host="localhost"
+        )
+     ```
+
+3. **psycopg2**: O módulo `psycopg2` é necessário para a comunicação entre Python e PostgreSQL.
+   - Para instalar:
+     ```bash
+     pip install psycopg2
+     ```
+
+4.  **Estrutura do Banco de Dados**:
+
+  Antes de rodar o código, é necessário garantir que o banco de dados PostgreSQL esteja configurado corretamente com as tabelas e colunas necessárias, Use o [DDL.sql](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_02/DDL.sql) junto do [INSERT.sql
+  ](https://github.com/SBD1/2024.1-Warframe/blob/main/docs/Entrega_02/INSERT.sql) para criar o banco apropriadamente.
+
+5. **Execute o script Python**:
+  ```bash   
+    python3 main.py
+  ```
+
+
+
 ## :handshake: Colaboradores
 
 | <img src="https://avatars.githubusercontent.com/u/78980856?s=400&u=921d277b9f43db9a1f09325391b30bb23e2f6c1e&v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/98053876?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/78981008?v=4" width="100px" style="border-radius: 50%;"> | <img src="https://avatars.githubusercontent.com/u/54339291?v=4" width="100px" style="border-radius: 50%;"> |
