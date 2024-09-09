@@ -1,6 +1,11 @@
+| Versão |    Data    | Descrição               | Autor                                                                                                                 |
+| :----: | :--------: | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `1.0`  | 07/09/2024 | Criação do documento de view e procedure | [Taynara Cristina](https://github.com/TaynaraCris)|
+| `1.1` | 08/09/2024 | Adicionando view e procedure| [Taynara Cristina](https://github.com/TaynaraCris)
+
 # Views
 
-## Criação da View
+## Criação da View monstros_mortos
 
 Este bloco cria uma view chamada monstros_mortos, que lista os monstros cuja vida é menor ou igual a zero. Etsá view é utilizada para verificar se o monstro está vivo, e caso o contrário reviver ele em reviver_monstros.
 
@@ -27,12 +32,57 @@ Este comando remove a view monstros_mortos, caso ela exista.
 DROP VIEW IF EXISTS monstros_mortos;
 ```
 
-## Remoção da View
+## Criação da View missoes_por_jogador
 
-Este comando remove a view monstros_mortos, caso ela exista.
+Defini a missão de cada jogador.
 
 ```sql
-DROP VIEW IF EXISTS monstros_mortos;
+CREATE VIEW missoes_por_jogador AS
+    SELECT j.nome AS jogador_nome, m.nome AS missao_nome, m.dificuldade, m.recompensa
+    FROM Jogadores j
+    JOIN Missoes m ON j.id = m.jogador_id;
+```
+
+## Consulta para Visualizar as Missões por Jogador
+
+Esta consulta permite visualizar os dados da view missoes_por_jogador.
+
+```sql
+SELECT * FROM missoes_por_jogador;
+```
+
+## Remoção da View
+
+Este comando remove a view missoes_por_jogador, caso ela exista.
+
+```sql
+DROP VIEW IF EXISTS missoes_por_jogador;
+```
+## Criação da View monstros_por_local
+
+Mostrar posição dos monstros por local.
+
+```sql
+CREATE VIEW monstros_por_local AS
+    SELECT l.nome AS local_nome, m.nome AS monstro_nome, m.nivel, m.dano, m.vida, m.habilidades
+    FROM Mapa l
+    JOIN Monstros m ON l.id = m.local_id;
+```
+
+## Consulta para Visualizar os Montros por Local
+
+Esta consulta permite visualizar os dados da view monstros_por_local.
+
+```sql
+SELECT * FROM monstros_por_local;
+```
+
+## Remoção da View
+
+Este comando remove a view monstros_por_local, caso ela exista.
+
+```sql
+DROP VIEW IF EXISTS monstros_por_local;
 ```
 
 # QUERIES
@@ -95,6 +145,125 @@ Remove o procedimento reviver_monstros, caso ele exista.
 ```sql
 DROP PROCEDURE IF EXISTS reviver_monstros(jogador_id INT);
 ```
+
+## Procedimento para Ganhar Experiência em Missões
+
+Este procedimento ganhar_experiencia_missao permite que um jogador ganhe experiência ao completar uma missão.
+
+```sql
+CREATE OR REPLACE PROCEDURE ganhar_experiencia_missao(jogador_id INT, missao_id INT)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    dificuldade_missao INT;
+    local_id_missao INT;
+    dificuldade_mapa INT;
+    experiencia_ganha INT;
+BEGIN
+    SELECT dificuldade, local_id INTO dificuldade_missao, local_id_missao
+    FROM Missoes
+    WHERE id = missao_id;
+
+    IF dificuldade_missao IS NULL THEN
+        RAISE EXCEPTION 'Missão com ID % não encontrada.', missao_id;
+    END IF;
+
+    SELECT nivel_dificuldade INTO dificuldade_mapa
+    FROM Mapa
+    WHERE id = local_id_missao;
+
+    IF dificuldade_mapa IS NULL THEN
+        RAISE EXCEPTION 'Mapa com ID % não encontrado.', local_id_missao;
+    END IF;
+
+    experiencia_ganha := dificuldade_missao + dificuldade_mapa;
+
+    UPDATE Jogadores
+    SET experiencia = experiencia + experiencia_ganha
+    WHERE id = jogador_id;
+
+    RAISE NOTICE 'Jogador com ID % ganhou % de experiência ao completar a missão.', jogador_id, experiencia_ganha;
+END;
+$$;
+```
+
+## Chamada do Procedimento para Ganhar Experiência
+
+Esta linha chama o procedimento ganhar_experiencia_missao, passando os IDs do jogador e da missão.
+
+```sql
+CALL ganhar_experiencia_missao(idJogador, idMissao);
+```
+
+## Remoção do Procedimento
+Remove o procedimento ganhar_experiencia_missao, caso ele exista.
+
+```sql
+DROP PROCEDURE IF EXISTS ganhar_experiencia_missao(INT, INT);
+```
+
+## Procedimento para Utilizar Item
+Esse procedimento permite que um jogador utilize um item e diminui sua quantidade no inventário. Se a quantidade do item chegar a zero, ele é removido do inventário.
+
+```sql
+CREATE OR REPLACE PROCEDURE usar_item(p_jogador_id INT, p_item_id INT)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    quantidade_atual INT;
+BEGIN
+    SELECT quantidade INTO quantidade_atual
+    FROM Itens
+    WHERE id = p_item_id AND jogador_id = p_jogador_id;
+
+    IF quantidade_atual IS NULL THEN
+        RAISE EXCEPTION 'Item com ID % não encontrado para o jogador %.', p_item_id, p_jogador_id;
+    END IF;
+
+    IF quantidade_atual > 0 THEN
+        UPDATE Itens
+        SET quantidade = quantidade - 1
+        WHERE id = p_item_id AND jogador_id = p_jogador_id;
+
+        RAISE NOTICE 'Jogador % usou o item % e agora tem % restantes.', p_jogador_id, p_item_id, quantidade_atual - 1;
+
+        IF quantidade_atual - 1 = 0 THEN
+            DELETE FROM Itens
+            WHERE id = p_item_id AND jogador_id = p_jogador_id;
+            RAISE NOTICE 'Item % foi removido do inventário do jogador %.', p_item_id, p_jogador_id;
+        END IF;
+    ELSE
+        RAISE EXCEPTION 'Item % já está esgotado no inventário do jogador %.', p_item_id, p_jogador_id;
+    END IF;
+END;
+$$;
+
+```
+
+## Chamada do Procedimento para Utilizar Item
+
+Esta linha chama o procedimento usar_item, passando o ID do jogador e do item.
+
+```sql
+CALL usar_item(jogador_id INT, item_id INT);
+```
+
+Verificando o resultado da quantidade de itens do jogador 1 após o uso
+
+```sql
+SELECT nome, quantidade
+FROM Itens
+WHERE jogador_id = 1;
+```
+## Remoção do Item
+Remove o procedimento usar_item, caso ele exista.
+
+```sql
+DROP PROCEDURE IF EXISTS usar_item(p_jogador_id INT, p_item_id INT);
+```
+
+
+
 
 ## Procedimento para Ganhar Experiência em Missões
 
