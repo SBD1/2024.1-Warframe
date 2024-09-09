@@ -6,6 +6,56 @@
 
 # Views
 
+## View de Detalhes dos Jogadores
+
+Esta View combina informações dos jogadores com seus níveis e a localização atual no mapa. Ela permite visualizar o status completo de cada jogador, incluindo os benefícios do nível e detalhes da região onde estão atualmente.
+
+```sql
+CREATE VIEW vw_jogadores_detalhes AS
+SELECT 
+    j.id AS jogador_id,
+    j.nome AS nome_jogador,
+    j.nivel,
+    j.experiencia,
+    j.saude,
+    j.dano,
+    n.exp_para_subir,
+    n.aumento_saude,
+    n.aumento_dano,
+    n.aumento_outros,
+    m.id AS local_atual_id,
+    m.nome AS local_atual_nome,
+    m.tipo AS tipo_mapa
+FROM Jogadores j
+JOIN Niveis n ON j.nivel_id = n.nivel
+JOIN Mapa m ON j.local_atual_id = m.id;
+Consulta para Visualizar os Detalhes dos Jogadores
+
+SELECT * FROM vw_jogadores_detalhes;
+
+View de Inventário dos Jogadores
+Esta View reúne os itens e equipamentos que cada jogador possui, facilitando o gerenciamento do inventário e a visualização dos recursos disponíveis.
+
+
+CREATE VIEW vw_inventario_jogadores AS
+SELECT 
+    j.id AS jogador_id,
+    j.nome AS nome_jogador,
+    i.id AS item_id,
+    i.nome AS item_nome,
+    i.descricao AS item_descricao,
+    i.quantidade,
+    e.id_equipamento AS equipamento_id,
+    e.nome AS equipamento_nome,
+    e.dano AS equipamento_dano
+FROM Jogadores j
+LEFT JOIN Itens i ON j.id = i.jogador_id
+LEFT JOIN Equipamentos e ON j.id = e.id_jogador;
+Consulta para Visualizar o Inventário dos Jogadores
+
+SELECT * FROM vw_inventario_jogadores
+WHERE jogador_id = 1;
+
 ## Criação da View monstros_mortos
 
 Este bloco cria uma view chamada monstros_mortos, que lista os monstros cuja vida é menor ou igual a zero. Etsá view é utilizada para verificar se o monstro está vivo, e caso o contrário reviver ele em reviver_monstros.
